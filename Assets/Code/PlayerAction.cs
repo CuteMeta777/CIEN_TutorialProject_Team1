@@ -28,8 +28,8 @@ public class PlayerAction : MonoBehaviour
 
     private void InitFields()
     {
-        move_speed = 500f;
-        jump_force = 750f;
+        move_speed = 30f;
+        jump_force = 200f;
         vel_damp = 0.75f;
         is_grounded = false;
     }
@@ -66,9 +66,20 @@ public class PlayerAction : MonoBehaviour
 
     private bool IsGrounded()
     {
-        Collider[] hits = Physics.OverlapBox(new Vector3(transform.position.x, transform.position.y, transform.position.z), new Vector3(0.25f, 0.25f, 0.25f), Quaternion.identity, LayerMask.GetMask("Ground"));
+        Vector3 center = new Vector3(transform.position.x, transform.position.y, transform.position.z - 0.035f);
+        Vector3 half_extents = new Vector3(0.125f, 0.0625f, 0.125f);
+        Collider[] hits = Physics.OverlapBox(center, half_extents, Quaternion.identity, LayerMask.GetMask("Ground"));
         if (hits.Length > 0) return true;
         return false;
+    }
+
+    private void OnDrawGizmosSelected() // for test
+    {
+        Gizmos.color = Color.green;
+        Vector3 center = new Vector3(transform.position.x, transform.position.y, transform.position.z - 0.035f);
+        Vector3 half_extents = new Vector3(0.125f, 0.0625f, 0.125f);
+        Gizmos.matrix = Matrix4x4.TRS(center, Quaternion.identity, Vector3.one);
+        Gizmos.DrawWireCube(Vector3.zero, half_extents * 2);
     }
 
     private void Move()
