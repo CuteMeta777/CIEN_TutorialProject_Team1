@@ -19,6 +19,36 @@ public class PlayerAction : MonoBehaviour
         InitFields();
     }
 
+    private void Start()
+    {
+        ConfigThirdPersonMousePointer();
+        MoveToLastSavePoint();
+    }
+
+    private void FixedUpdate()
+    {
+        is_grounded = IsGrounded();
+        Move();
+    }
+
+    private void Update()
+    {
+        anim.SetBool("IsGrounded", is_grounded);
+        if (pi.jump && is_grounded) Jump();
+        AimCamera();
+    }
+
+    private void ConfigThirdPersonMousePointer()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+    }
+
+    private void MoveToLastSavePoint()
+    {
+        transform.position = SavePointManager.instance.GetLastSavePoint();
+    }
+
     private void GetReferences()
     {
         pi = GetComponent<PlayerInput>();
@@ -32,31 +62,6 @@ public class PlayerAction : MonoBehaviour
         jump_force = 200f;
         vel_damp = 0.75f;
         is_grounded = false;
-    }
-
-    private void Start()
-    {
-        ConfigMousePointer("Third Person");
-    }
-
-    private void ConfigMousePointer(string value) // value는 필요 없음. Third Person Setting이라는 것을 알려줄 뿐.
-    {
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-    }
-
-    private void FixedUpdate()
-    {
-        Move();
-        // if (pi.jump) Jump();
-    }
-
-    private void Update()
-    {
-        is_grounded = IsGrounded();
-        anim.SetBool("IsGrounded", is_grounded);
-        if (pi.jump && is_grounded) Jump();
-        AimCamera();
     }
 
     private void AimCamera()
@@ -73,7 +78,7 @@ public class PlayerAction : MonoBehaviour
         return false;
     }
 
-    private void OnDrawGizmosSelected() // for test
+    private void OnDrawGizmosSelected() // to test IsGrounded()
     {
         Gizmos.color = Color.green;
         Vector3 center = new Vector3(transform.position.x, transform.position.y, transform.position.z - 0.035f);
@@ -97,8 +102,21 @@ public class PlayerAction : MonoBehaviour
         rb.AddForce(Vector3.up * jump_force);
     }
 
-    public void OnLand()
+    public void Hurt()
     {
-        // play sound
+        // 무적 시간^^
+        AnimatorStateInfo state = anim.GetCurrentAnimatorStateInfo(0);
+        if (state.IsName("Hurt") || state.IsName("Die")) return;
+
+        anim.SetTrigger("Hurt");
+    }
+
+    public void Die()
+    {
+        // 무적 시간^^
+        AnimatorStateInfo state = anim.GetCurrentAnimatorStateInfo(0);
+        if (state.IsName("Hurt") || state.IsName("Die")) return;
+
+        anim.SetTrigger("Die");
     }
 }
