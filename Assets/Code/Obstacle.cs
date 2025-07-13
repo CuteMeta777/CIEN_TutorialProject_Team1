@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class Obstacle : MonoBehaviour
 {
+    // 아직 밀려나는 건 구현되지 않음...
+
     private enum Type
     {
         InstaKill,

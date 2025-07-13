@@ -104,7 +104,7 @@ public class PlayerAction : MonoBehaviour
 
     public void Hurt()
     {
-        // 무적 시간^^
+        // 양심적인 무적 시간^^
         AnimatorStateInfo state = anim.GetCurrentAnimatorStateInfo(0);
         if (state.IsName("Hurt") || state.IsName("Die")) return;
 
@@ -113,9 +113,9 @@ public class PlayerAction : MonoBehaviour
 
     public void Die()
     {
-        // 무적 시간^^
+        // 죽었는데 또 죽일 수는...
         AnimatorStateInfo state = anim.GetCurrentAnimatorStateInfo(0);
-        if (state.IsName("Hurt") || state.IsName("Die")) return;
+        if (state.IsName("Die")) return;
 
         anim.SetTrigger("Die");
     }
