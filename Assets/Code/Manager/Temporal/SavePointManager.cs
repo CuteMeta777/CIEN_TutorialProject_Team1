@@ -5,7 +5,7 @@ public class SavePointManager : MonoBehaviour
 {
     public static SavePointManager instance;
 
-    private Vector3 lastest_save_point; // position
+    [SerializeField] private Vector3 lastest_save_point; public void SetLastSavePoint(Vector3 position) { lastest_save_point = position; } public Vector3 GetLastSavePoint() { return lastest_save_point; }
     private string[] valid_scene_names = new string[3];
 
     private void Awake()
@@ -27,6 +27,11 @@ public class SavePointManager : MonoBehaviour
             if (scene.name == valid_scene_names[i]) return;
 
         Destroy(gameObject);
+    }
+
+    private void OnDestroy()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
     private void ConfigSingleton()
@@ -55,7 +60,4 @@ public class SavePointManager : MonoBehaviour
         if (SceneManager.GetActiveScene().name == "Stage 2") { lastest_save_point = new Vector3(4.6f, 0.98f, -0.032f); return; }
         if (SceneManager.GetActiveScene().name == "Stage 3") { lastest_save_point = new Vector3(4.6f, 0.98f, -0.032f); return; }
     }
-
-    public void SetLastSavePoint(Vector3 position) { lastest_save_point = position; }
-    public Vector3 GetLastSavePoint() { return lastest_save_point; }
 }

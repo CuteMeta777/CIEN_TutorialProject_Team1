@@ -12,8 +12,9 @@ namespace PlayerAnimation
 
         public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
+            // 나중에 Scene이 넘어가는 것도 구현... 지금은 일단 Main Menu로 보냄.
             Debug.Log(CustomSceneManager.instance);
-            CustomSceneManager.instance.LoadScene(0);
+            CustomSceneManager.instance.LoadScene(1);
         }
     }
 }

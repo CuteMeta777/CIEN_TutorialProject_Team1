@@ -2,8 +2,6 @@ using UnityEngine;
 
 public class Obstacle : MonoBehaviour
 {
-    // 아직 밀려나는 건 구현되지 않음... 근데 밀려나서 떨어지도록 하는 건 이걸 통해서 구현하는 것보다는 그냥 Rigidbody로 하는 게 나을지도?
-
     private enum Type
     {
         InstaKill,
@@ -16,7 +14,9 @@ public class Obstacle : MonoBehaviour
     {
         if (!other.CompareTag("Player")) return;
 
-        PlayerAction pa = FindFirstObjectByType<PlayerAction>();
+        PlayerAction pa = other.GetComponent<PlayerAction>();
+        if (pa == null) { Debug.Log("Player가 PlayerAction 컴포넌트를 지니고 있지 않습니다!"); return; }
+
         if (type == Type.InstaKill)
         {
             pa.Die();
@@ -36,7 +36,9 @@ public class Obstacle : MonoBehaviour
     {
         if (!other.gameObject.CompareTag("Player")) return;
 
-        PlayerAction pa = FindFirstObjectByType<PlayerAction>();
+        PlayerAction pa = other.gameObject.GetComponent<PlayerAction>();
+        if (pa == null) { Debug.Log("Player가 PlayerAction 컴포넌트를 지니고 있지 않습니다!"); return; }
+
         if (type == Type.InstaKill)
         {
             pa.Die();
