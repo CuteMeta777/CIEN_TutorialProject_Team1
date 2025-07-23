@@ -66,4 +66,12 @@ public class CustomSceneManager : MonoBehaviour // Unity 내장 클래스인 SceneMana
     {
         LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
+
+    // 원래 절대 이렇게 짜면 안 되고, 필요한 값들을 상수화해서 정확하게 해야 함. 그치만 일단 테스트만... cutscene조차도 만들어지지 않았으므로.
+    public void GoToNextScene()
+    {
+        if (SceneManager.GetActiveScene().buildIndex == 8) { LoadScene(1); return; }
+
+        LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
 }
