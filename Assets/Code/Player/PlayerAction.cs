@@ -59,7 +59,7 @@ public class PlayerAction : MonoBehaviour
     private void InitFields()
     {
         move_speed = 30f;
-        jump_force = 200f;
+        jump_force = 150f;
         vel_damp = 0.75f;
         is_grounded = false;
     }
