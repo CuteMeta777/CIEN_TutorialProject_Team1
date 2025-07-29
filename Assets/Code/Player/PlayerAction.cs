@@ -6,12 +6,12 @@ public class PlayerAction : MonoBehaviour
     private Rigidbody rb;
     private Animator anim;
 
-    private float move_speed;
-    private float jump_force;
-    private float vel_damp;
-    private bool is_grounded;
+    [SerializeField] private float move_speed; // default = 30
+    [SerializeField] private float jump_force; // default = 150
+    [SerializeField] private float vel_damp;   // default = 0.75 (감속 비율이므로 0 < x < 1이여야 함)
+    private bool is_grounded; public void SetIsGrounded(bool value) { is_grounded = value; }
 
-    [SerializeField] private Transform cam_transform;
+    [SerializeField] private Transform cam_transform; // DO NOT TOUCH, CONST VALUE
 
     private void Awake()
     {
@@ -27,7 +27,6 @@ public class PlayerAction : MonoBehaviour
 
     private void FixedUpdate()
     {
-        is_grounded = IsGrounded();
         Move();
     }
 
@@ -58,9 +57,9 @@ public class PlayerAction : MonoBehaviour
 
     private void InitFields()
     {
-        move_speed = 30f;
-        jump_force = 150f;
-        vel_damp = 0.75f;
+        // move_speed = 30f;
+        // jump_force = 150f;
+        // vel_damp = 0.75f;
         is_grounded = false;
     }
 
@@ -69,23 +68,28 @@ public class PlayerAction : MonoBehaviour
         transform.rotation = Quaternion.Euler(transform.eulerAngles.x, cam_transform.eulerAngles.y, transform.eulerAngles.x);
     }
 
-    private bool IsGrounded()
+    /*private bool IsGrounded()
     {
         Vector3 center = new Vector3(transform.position.x, transform.position.y, transform.position.z - 0.035f);
         Vector3 half_extents = new Vector3(0.125f, 0.0625f, 0.125f);
         Collider[] hits = Physics.OverlapBox(center, half_extents, Quaternion.identity, LayerMask.GetMask("Ground"));
         if (hits.Length > 0) return true;
         return false;
-    }
+    }*/
 
-    private void OnDrawGizmosSelected() // to test IsGrounded()
+    /*private void OnDrawGizmosSelected() // to test IsGrounded()
     {
         Gizmos.color = Color.green;
         Vector3 center = new Vector3(transform.position.x, transform.position.y, transform.position.z - 0.035f);
         Vector3 half_extents = new Vector3(0.125f, 0.0625f, 0.125f);
         Gizmos.matrix = Matrix4x4.TRS(center, Quaternion.identity, Vector3.one);
         Gizmos.DrawWireCube(Vector3.zero, half_extents * 2);
-    }
+    }*/
+
+    /*private void OnCollisionEnter(Collision other)
+    {
+        Debug.Log(other.gameObject);
+    }*/
 
     private void Move()
     {
