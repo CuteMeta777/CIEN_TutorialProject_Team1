@@ -10,10 +10,10 @@ public class SavePointManager : MonoBehaviour
 
     private void Awake()
     {
-        transform.parent = null; // ÀÌ°É ¾ÈÇÏ¸é, Game Managers (Empty GameObject)¸¦ ¾µ ¼ö ¾øÀ½.
+        transform.parent = null; // ï¿½Ì°ï¿½ ï¿½ï¿½ï¿½Ï¸ï¿½, Game Managers (Empty GameObject)ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
         ConfigSingleton();
         InitFields();
-        SetInitialPositionForPlayer(); // ¿ø·¡ ¸ÞÄ¿´ÏÁò »ó, Start¿¡ °¡¾ß ÇÏÁö¸¸, PlayerAction classÀÇ MoveToLastSavePoint ¶§¹®¿¡ ºÎµæÀÌÇÏ°Ô ÀÌ°÷À¸·Î ¿Å±è.
+        SetInitialPositionForPlayer(); // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½, Startï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, PlayerAction classï¿½ï¿½ MoveToLastSavePoint ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Îµï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½Ì°ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Å±ï¿½.
     }
 
     private void Start()
@@ -57,7 +57,7 @@ public class SavePointManager : MonoBehaviour
     private void SetInitialPositionForPlayer()
     {
         if (SceneManager.GetActiveScene().name == "Stage 1") { lastest_save_point = new Vector3(4.6f, 0.98f, -0.032f); return; }
-        if (SceneManager.GetActiveScene().name == "Stage 2") { lastest_save_point = new Vector3(-0.213f, 0.842f, 8.076f);  return; }
+        if (SceneManager.GetActiveScene().name == "Stage 2") { lastest_save_point = new Vector3(-0.179f, 0.646f, 7.376f);  return; }
         if (SceneManager.GetActiveScene().name == "Stage 3") { lastest_save_point = new Vector3(-9.86900043f, 1.63300002f, -2.43899989f); return; }
     }
 }
