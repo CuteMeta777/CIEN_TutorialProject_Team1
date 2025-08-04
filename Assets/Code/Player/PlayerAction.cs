@@ -68,29 +68,6 @@ public class PlayerAction : MonoBehaviour
         transform.rotation = Quaternion.Euler(transform.eulerAngles.x, cam_transform.eulerAngles.y, transform.eulerAngles.x);
     }
 
-    /*private bool IsGrounded()
-    {
-        Vector3 center = new Vector3(transform.position.x, transform.position.y, transform.position.z - 0.035f);
-        Vector3 half_extents = new Vector3(0.125f, 0.0625f, 0.125f);
-        Collider[] hits = Physics.OverlapBox(center, half_extents, Quaternion.identity, LayerMask.GetMask("Ground"));
-        if (hits.Length > 0) return true;
-        return false;
-    }*/
-
-    /*private void OnDrawGizmosSelected() // to test IsGrounded()
-    {
-        Gizmos.color = Color.green;
-        Vector3 center = new Vector3(transform.position.x, transform.position.y, transform.position.z - 0.035f);
-        Vector3 half_extents = new Vector3(0.125f, 0.0625f, 0.125f);
-        Gizmos.matrix = Matrix4x4.TRS(center, Quaternion.identity, Vector3.one);
-        Gizmos.DrawWireCube(Vector3.zero, half_extents * 2);
-    }*/
-
-    /*private void OnCollisionEnter(Collision other)
-    {
-        Debug.Log(other.gameObject);
-    }*/
-
     private void Move()
     {
         anim.SetFloat("Velocity", Mathf.Sign(pi.move_x) * new Vector2(pi.move_x, pi.move_z).normalized.magnitude);
