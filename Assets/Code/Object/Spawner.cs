@@ -21,8 +21,9 @@ public class Spawner : MonoBehaviour
         timer += Time.deltaTime;
         if (timer >= spawnInterval)
         {
-            Instantiate(prefab, spawnpoint.position, Quaternion.identity);
+            GameObject clone = Instantiate(prefab, spawnpoint.position, Quaternion.identity);
             timer = 0f;
+            Destroy(clone, 3f);
         }
     }
 }
