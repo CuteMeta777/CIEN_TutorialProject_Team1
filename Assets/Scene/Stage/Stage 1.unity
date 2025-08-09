@@ -51441,29 +51441,6 @@ Transform:
   - {fileID: 4147531458707794949}
   m_Father: {fileID: 6927277171661620477}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &2650779760307437814
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8164056117406603265}
-  m_Material: {fileID: 13400000, guid: 104ec9a4846745547b952c417214cca8, type: 2}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.4
-  m_Height: 0.94
-  m_Direction: 2
-  m_Center: {x: 0, y: 0.4, z: -0.08}
 --- !u!4 &2693601406568085895
 Transform:
   m_ObjectHideFlags: 0
@@ -52255,12 +52232,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6927277171661620477}
-  - component: {fileID: 8387129833684161955}
-  - component: {fileID: 2650779760307437814}
-  - component: {fileID: 6810000480161380990}
   - component: {fileID: 4546300135869747677}
+  - component: {fileID: 8438435978078450910}
   - component: {fileID: 8438435978078450908}
+  - component: {fileID: 6810000480161380990}
+  - component: {fileID: 8387129833684161955}
   - component: {fileID: 8355712593325107092}
+  - component: {fileID: 8438435978078450909}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -52355,10 +52333,43 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53b245585641cc142ad8268690984f23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  move_speed: 30
-  jump_force: 200
-  vel_damp: 0.75
   cam_transform: {fileID: 1539086129}
+--- !u!135 &8438435978078450909
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8164056117406603265}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.4
+  m_Center: {x: 0, y: 0.38, z: 0}
+--- !u!114 &8438435978078450910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8164056117406603265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11c083eb109ffed4f9e0921506858e11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _base_speed: 30
+  _jump_force: 150
+  _velocity_damp: 0.75
 --- !u!1 &9204001208826030710
 GameObject:
   m_ObjectHideFlags: 0

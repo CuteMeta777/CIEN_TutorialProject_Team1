@@ -8228,29 +8228,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.32027417, y: 0.13287449, z: 0.4220261}
   m_Center: {x: 0.0024795681, y: 0.05397463, z: -0.0673054}
---- !u!136 &7087583593352208349
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8164056117406603265}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.30088443
-  m_Height: 0.775302
-  m_Direction: 2
-  m_Center: {x: -7.820041e-17, y: 0.4705379, z: -0.05699712}
 --- !u!4 &7195472891088392813
 Transform:
   m_ObjectHideFlags: 0
@@ -8327,13 +8304,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6927277171661620477}
+  - component: {fileID: 4546300135869747677}
+  - component: {fileID: 8438435978078450910}
+  - component: {fileID: 8438435978078450908}
   - component: {fileID: 8387129833684161955}
   - component: {fileID: 6810000480161380990}
-  - component: {fileID: 4546300135869747677}
-  - component: {fileID: 8438435978078450908}
   - component: {fileID: 8355712593325107092}
   - component: {fileID: 7087583593352208348}
-  - component: {fileID: 7087583593352208349}
+  - component: {fileID: 8438435978078450909}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -8428,10 +8406,43 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53b245585641cc142ad8268690984f23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  move_speed: 30
-  jump_force: 150
-  vel_damp: 0.75
   cam_transform: {fileID: 1539086129}
+--- !u!135 &8438435978078450909
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8164056117406603265}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.4
+  m_Center: {x: 0, y: 0.39, z: 0}
+--- !u!114 &8438435978078450910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8164056117406603265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11c083eb109ffed4f9e0921506858e11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _base_speed: 30
+  _jump_force: 150
+  _velocity_damp: 0.75
 --- !u!1 &9204001208826030710
 GameObject:
   m_ObjectHideFlags: 0

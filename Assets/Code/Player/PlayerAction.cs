@@ -3,25 +3,19 @@ using UnityEngine;
 public class PlayerAction : MonoBehaviour
 {
     private PlayerInput pi;
+    private PlayerStatus ps;
     private Rigidbody rb;
     private Animator anim;
 
-    [SerializeField] private float move_speed; // default = 30
-    [SerializeField] private float jump_force; // default = 150
-    [SerializeField] private float vel_damp;   // default = 0.75 (감속 비율이므로 0 < x < 1이여야 함)
-    private bool is_grounded; public void SetIsGrounded(bool value) { is_grounded = value; }
-
-    [SerializeField] private Transform cam_transform; // DO NOT TOUCH, CONST VALUE
+    [SerializeField, Tooltip("Const value. DO NOT TOUCH")] private Transform cam_transform;
 
     private void Awake()
     {
         GetReferences();
-        InitFields();
     }
 
     private void Start()
     {
-        // ConfigThirdPersonMousePointer();
         MoveToLastSavePoint();
     }
 
@@ -32,15 +26,14 @@ public class PlayerAction : MonoBehaviour
 
     private void Update()
     {
-        anim.SetBool("IsGrounded", is_grounded);
-        if (pi.jump && is_grounded) Jump();
         AimCamera();
+        anim.SetBool("IsGrounded", ps.is_grounded);
+        if (pi.jump && ps.is_grounded) Jump();
     }
 
-    private void ConfigThirdPersonMousePointer()
+    private void AimCamera()
     {
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        transform.rotation = Quaternion.Euler(transform.eulerAngles.x, cam_transform.eulerAngles.y, transform.eulerAngles.x);
     }
 
     private void MoveToLastSavePoint()
@@ -51,36 +44,24 @@ public class PlayerAction : MonoBehaviour
     private void GetReferences()
     {
         pi = GetComponent<PlayerInput>();
+        ps = GetComponent<PlayerStatus>();
         rb = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
-    }
-
-    private void InitFields()
-    {
-        // move_speed = 30f;
-        // jump_force = 150f;
-        // vel_damp = 0.75f;
-        is_grounded = false;
-    }
-
-    private void AimCamera()
-    {
-        transform.rotation = Quaternion.Euler(transform.eulerAngles.x, cam_transform.eulerAngles.y, transform.eulerAngles.x);
     }
 
     private void Move()
     {
         anim.SetFloat("Velocity", Mathf.Sign(pi.move_x) * new Vector2(pi.move_x, pi.move_z).normalized.magnitude);
         Vector3 move_dir = (transform.right * pi.move_x + transform.forward * pi.move_z).normalized;
-        rb.linearVelocity += move_dir * move_speed * Time.fixedDeltaTime;
-        rb.linearVelocity = new Vector3(rb.linearVelocity.x * vel_damp, rb.linearVelocity.y, rb.linearVelocity.z * vel_damp);
+        rb.linearVelocity += move_dir * ps.speed_multi * ps.base_speed * Time.fixedDeltaTime;
+        rb.linearVelocity = new Vector3(rb.linearVelocity.x * ps.vel_damp, rb.linearVelocity.y, rb.linearVelocity.z * ps.vel_damp);
     }
 
     private void Jump()
     {
         anim.SetTrigger("Jump");
         rb.linearVelocity = new Vector3(rb.linearVelocity.x, 0, rb.linearVelocity.z);
-        rb.AddForce(Vector3.up * jump_force);
+        rb.AddForce(Vector3.up * ps.jump_force);
     }
 
     public void Hurt()

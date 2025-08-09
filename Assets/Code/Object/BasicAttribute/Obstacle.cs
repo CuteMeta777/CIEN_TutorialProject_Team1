@@ -4,8 +4,7 @@ public class Obstacle : MonoBehaviour
 {
     private enum Type
     {
-        InstaKill,
-        Knockback
+        InstaKill
     }
     [SerializeField] private Type type;
 
@@ -20,11 +19,6 @@ public class Obstacle : MonoBehaviour
         if (type == Type.InstaKill)
         {
             pa.Die();
-            return;
-        }
-        if (type == Type.Knockback)
-        {
-            pa.Hurt();
             return;
         }
 
@@ -42,11 +36,6 @@ public class Obstacle : MonoBehaviour
         if (type == Type.InstaKill)
         {
             pa.Die();
-            return;
-        }
-        if (type == Type.Knockback)
-        {
-            pa.Hurt();
             return;
         }
 
