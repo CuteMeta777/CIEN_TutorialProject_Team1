@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class PlayerStatus : MonoBehaviour
 {
@@ -15,13 +16,12 @@ public class PlayerStatus : MonoBehaviour
 
     public bool is_grounded { get; private set; } public void SetIsGrounded(bool value) { is_grounded = value; }
 
-    public enum Effect
+    public enum Effect 
     {
-        SlightSlowDown,
-        StrongSlowDown
+        WeakSlowdown,
+        StrongSlowdown
     }
-    private Coroutine slight_slow_down;
-    private Coroutine strong_slow_down;
+    private Dictionary<Effect, float> effect_durations = new Dictionary<Effect, float>();
 
     private void Awake()
     {
@@ -35,40 +35,49 @@ public class PlayerStatus : MonoBehaviour
         vel_damp = _velocity_damp;
 
         speed_multi = 1f;
-
-        slight_slow_down = null;
-        strong_slow_down = null;
+        jump_force_multi = 1f;
     }
 
-    public void ApplyEffect(Effect effect_type)
+    public void ApplyEffect(Effect type)
     {
-        if (effect_type == Effect.SlightSlowDown) 
+        switch (type)
         {
-            if (slight_slow_down == null) slight_slow_down = StartCoroutine(SlightSlowDown());
-            // else { StopCoroutine(slight_slow_down); StartCoroutine(SlightSlowDown()); }
-            return;
-        }
-        if (effect_type == Effect.StrongSlowDown)
-        {
-            if (strong_slow_down == null) strong_slow_down = StartCoroutine(StrongSlowDown());
-            // else { StopCoroutine(strong_slow_down); StartCoroutine(StrongSlowDown()); }
-            return;
+            case Effect.WeakSlowdown:
+                ApplySlowdown(0.25f);
+                break;
+            case Effect.StrongSlowdown:
+                ApplySlowdown(0.50f);
+                break;
         }
     }
 
-    IEnumerator SlightSlowDown()
+    private void ApplySlowdown(float strength)
     {
-        speed_multi -= 0.25f;
-        yield return new WaitForSeconds(1f);
-        speed_multi += 0.25f;
-        yield break;
+        float weak_slowdown_duration = 1f;
+        float new_end_time = Time.time + weak_slowdown_duration;
+
+        // already have the effect, so just add "end time"
+        if (effect_durations.ContainsKey(Effect.WeakSlowdown))
+        {
+            effect_durations[Effect.WeakSlowdown] = new_end_time;
+            return;
+        }
+
+        // start new coroutine, if doesn't have the effect yet
+        effect_durations[Effect.WeakSlowdown] = new_end_time;
+        StartCoroutine(Slowdown(strength));
     }
 
-    IEnumerator StrongSlowDown()
+    private IEnumerator Slowdown(float strength)
     {
-        speed_multi -= 0.5f;
-        yield return new WaitForSeconds(1f);
-        speed_multi += 0.5f;
-        yield break;
+        speed_multi -= strength;
+
+        while (Time.time < effect_durations[Effect.WeakSlowdown])
+        {
+            yield return null;
+        }
+
+        speed_multi += strength;
+        effect_durations.Remove(Effect.WeakSlowdown);
     }
 }
