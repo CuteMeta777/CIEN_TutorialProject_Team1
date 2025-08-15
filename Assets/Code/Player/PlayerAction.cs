@@ -90,4 +90,9 @@ public class PlayerAction : MonoBehaviour
 
         anim.SetTrigger("Goal");
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log(collision.gameObject.name);
+    }
 }
