@@ -58,6 +58,6 @@ public class SavePointManager : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().name == "Stage 1") { lastest_save_point = new Vector3(7.664f, 0.782f, -2.372f); return; }
         if (SceneManager.GetActiveScene().name == "Stage 2") { lastest_save_point = new Vector3(1.588f, 1.347f, 7.391f);  return; }
-        if (SceneManager.GetActiveScene().name == "Stage 3") { lastest_save_point = new Vector3(-9.86900043f, 1.63300002f, -2.43899989f); return; }
+        if (SceneManager.GetActiveScene().name == "Stage 3") { lastest_save_point = new Vector3(-9.86900043f, 1.62119997f, -2.43429995f); return; }
     }
 }
