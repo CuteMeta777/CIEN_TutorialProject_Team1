@@ -37776,6 +37776,7 @@ MonoBehaviour:
   prefab: {fileID: 1096553033}
   spawnpoint: {fileID: 1531784523}
   spawnInterval: 2
+  pathData: {fileID: 0}
 --- !u!1001 &1535869409
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -55175,6 +55176,10 @@ PrefabInstance:
     - target: {fileID: 2057981285464408712, guid: 9d21d724623773b46b51e79f3e525659, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3737080833856281416, guid: 9d21d724623773b46b51e79f3e525659, type: 3}
+      propertyPath: initial_rest_duration
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4466313676186730275, guid: 9d21d724623773b46b51e79f3e525659, type: 3}
       propertyPath: m_Name
