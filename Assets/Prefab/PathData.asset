@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5367a5ded8f10643a6edae35667aece, type: 3}
   m_Name: PathData
   m_EditorClassIdentifier: 
-  useLocalSpace: 1
+  useLocalSpace: 0
   points:
-  - {x: -9.3597, y: 3.419, z: 4.9093}
-  - {x: 0.061, y: -0.79, z: -2.061}
+  - {x: -9.28, y: 2.485, z: 2.425}

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1030990082}
   - component: {fileID: 1030990083}
   - component: {fileID: -2682750331526488065}
+  - component: {fileID: -4411140680100881176}
   m_Layer: 0
   m_Name: SM_Food_SM_Apple_01
   m_TagString: Untagged
@@ -28,8 +29,8 @@ Transform:
   m_GameObject: {fileID: 1030990080}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.00015096, y: -0.025282, z: 0.0014479}
+  m_LocalScale: {x: 1.7425, y: 1.7425, z: 1.7425}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1030990085}
@@ -104,9 +105,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2585343aec2cfa48957486e9702d0b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pathData: {fileID: 11400000, guid: 4804c216aa1abb04cb81daca66bbdc79, type: 2}
+  pathData: {fileID: 0}
   speed: 1
   arriveThreshold: 0.1
+--- !u!114 &-4411140680100881176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1030990080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02d437857e4a75c40839c1c88b2daadf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
 --- !u!1 &1030990084
 GameObject:
   m_ObjectHideFlags: 0
