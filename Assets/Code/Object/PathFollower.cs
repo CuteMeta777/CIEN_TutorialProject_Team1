@@ -11,45 +11,51 @@ public class PathFollower : MonoBehaviour
     Vector3 originPos;
     Quaternion originRot;
 
-    void Awake()
-    {
-        if (pathData == null || pathData.points == null || pathData.points.Length == 0)
-        {
-            enabled = false;
-            return;
-        }
-    }
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        if (pathData == null || pathData.points == null || pathData.points.Length == 0)
+        {
+            Debug.LogError("[PathFollower] pathData가 비었거나 포인트가 없습니다.");
+            enabled = false;
+            return;
+        }
+
+        runtimePoints = pathData.points;
+        originPos = transform.position;
+        originRot = transform.rotation;
+        idx = 0;
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (idx >= runtimePoints.Length) return;
+        if (runtimePoints == null || idx >= runtimePoints.Length) return;
 
         Vector3 target = pathData.useLocalSpace ? originPos + (originRot * runtimePoints[idx]) : runtimePoints[idx];
 
         Vector3 to = target - transform.position;
         float dist = to.magnitude;
         if (dist <= arriveThreshold)
-            {
-                idx++; return;
-            }
+        {
+            idx++; return;
+        }
 
 
-        Vector3 step = to.normalized*speed*Time.deltaTime;
+        Vector3 step = to.normalized * speed * Time.deltaTime;
         transform.position += (step.sqrMagnitude > dist * dist) ? to : step;
+
+        if (step != Vector3.zero) transform.rotation = Quaternion.LookRotation(step);
     }
 
-    void OnDrawGizomsSelected()
+    void OnDrawGizmosSelected()
     {
         if (pathData == null || pathData.points == null) return;
 
         Vector3 ToWorld(Vector3 p) => pathData.useLocalSpace ? transform.position + (transform.rotation * p) : p;
-        for (int i = 0;i< pathData.points.Length; i++)
+        for (int i = 0; i < pathData.points.Length; i++)
         {
             Vector3 a = ToWorld(pathData.points[i]);
             Gizmos.DrawSphere(a, 0.05f);
