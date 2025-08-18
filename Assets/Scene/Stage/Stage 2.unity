@@ -5449,6 +5449,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bathroom_Shower_Curtain_32 (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 1030986637, guid: abc00000000004612107432028409122, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1030986638, guid: abc00000000004612107432028409122, type: 3}
       propertyPath: m_RootOrder
       value: 83
@@ -5507,6 +5511,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1030986640, guid: abc00000000004612107432028409122, type: 3}
       propertyPath: m_CookingOptions
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030986641, guid: abc00000000004612107432028409122, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030986643, guid: abc00000000004612107432028409122, type: 3}
+      propertyPath: m_ReceiveGI
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030986645, guid: abc00000000004612107432028409122, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030986649, guid: abc00000000004612107432028409122, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030986653, guid: abc00000000004612107432028409122, type: 3}
+      propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
