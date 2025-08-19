@@ -4,7 +4,7 @@ using System.Collections;
 // 특정-구역(=Detector)에 들어오면...
 public class TippingVase : TriggeredTrap
 {
-    [SerializeField] private ParticleSystem break_particle;
+    [SerializeField] private GameObject break_particle;
     [SerializeField] private GameObject debrid;
 
     public override void React()
@@ -20,7 +20,8 @@ public class TippingVase : TriggeredTrap
             yield return null;
         }
 
-        break_particle.Play();
+        Instantiate(break_particle, transform.position, transform.rotation);
+        // break_particle.Play();
         MeshRenderer[] mrs = GetComponentsInChildren<MeshRenderer>();
         foreach (MeshRenderer mr in mrs) mr.enabled = false;
         yield return new WaitForSeconds(0.3f);
