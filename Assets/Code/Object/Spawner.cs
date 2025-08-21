@@ -37,7 +37,7 @@ public class Spawner : MonoBehaviour
 
             timer = 0f;
 
-            Destroy(clone, 2.8f);
+            Destroy(clone, 3f);
         }
     }
 }
