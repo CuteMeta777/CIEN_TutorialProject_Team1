@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useLocalSpace: 0
   points:
-  - {x: -9.932, y: 2.732, z: 2.253}
-  - {x: -9.984, y: 1.47, z: 2.331}
+  - {x: -9.984, y: 2.48, z: 2.347}
+  - {x: -9.984, y: 1.5, z: 2.347}
