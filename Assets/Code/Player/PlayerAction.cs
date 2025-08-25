@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerAction : MonoBehaviour
@@ -90,4 +91,10 @@ public class PlayerAction : MonoBehaviour
 
         anim.SetTrigger("Goal");
     }
+
+    // 틈만 나면 ghost collider 이슈가 터지는 관계로 이 코드를 남겨놓는다.
+    //private void OnCollisionEnter(Collision other)
+    //{
+    //    Debug.Log(other.gameObject.name);
+    //}
 }
