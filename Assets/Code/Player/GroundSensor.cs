@@ -2,18 +2,30 @@ using UnityEngine;
 
 public class GroundSensor : MonoBehaviour
 {
+    private PlayerAction pa;
     private PlayerStatus ps;
+    private AudioSource ap; // audio player
 
-    // [SerializeField] private ParticleSystem land_particle; 추후에 추가할 예정... (+사운드도)
+    private float timestamp;
+
+    [SerializeField] private ParticleSystem walk_particle, land_particle;
+    [SerializeField] private AudioClip land_clip;
 
     private void Awake()
     {
         GetReferences();
+        InitFields();
     }
 
     private void GetReferences()
     {
+        pa = GetComponentInParent<PlayerAction>();
         ps = GetComponentInParent<PlayerStatus>();
+        ap = GetComponent<AudioSource>();
+    }
+    private void InitFields()
+    {
+        timestamp = Time.time;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -21,7 +33,8 @@ public class GroundSensor : MonoBehaviour
         if (!other.CompareTag("Ground")) return;
         if (ps == null) { Debug.Log("Ground Sensor가 부착되지 않은 Player GameObject가 존재합니다!"); return; }
 
-        // land_particle.Play();
+        land_particle.Play();
+        ap.PlayOneShot(land_clip);
         ps.SetIsGrounded(true);
     }
 
@@ -30,6 +43,7 @@ public class GroundSensor : MonoBehaviour
         if (!other.CompareTag("Ground")) return;
         if (ps == null) { Debug.Log("Ground Sensor가 부착되지 않은 Player GameObject가 존재합니다!"); return; }
 
+        if (Mathf.Abs(pa.rb.linearVelocity.x) > 0.125f && Time.time - timestamp > 0.125f) { timestamp = Time.time; walk_particle.Play(); }
         ps.SetIsGrounded(true);
     }
 

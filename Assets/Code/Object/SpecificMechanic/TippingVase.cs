@@ -26,7 +26,7 @@ public class TippingVase : TriggeredTrap
         foreach (MeshRenderer mr in mrs) mr.enabled = false;
         yield return new WaitForSeconds(0.3f);
         for (int i = 0; i < 10; i++)
-            Instantiate(debrid, transform.position + new Vector3(Random.Range(-0.25f, 0.25f), 0, -0.5f + Random.Range(-0.25f, 0.25f)), Quaternion.Euler(Random.Range(-30f, 30f), Random.Range(-30f, 30f), Random.Range(-30f, 30f)));
+            Instantiate(debrid, transform.position + new Vector3(Random.Range(-0.25f, 0.25f), 0, -0.5f + Random.Range(-0.25f, 0.25f)), Quaternion.Euler(0, 0, 0));
         Destroy(gameObject);
         yield break;
     }
