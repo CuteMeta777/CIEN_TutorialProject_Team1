@@ -1,10 +1,14 @@
 using UnityEngine;
 using Unity.Cinemachine;
+using Benjathemaker;
 
 public class SavePoint : MonoBehaviour
 {
     private AudioSource ap;
     private CinemachineOrbitalFollow cof;
+    private SimpleGemsAnim sga;
+
+    private bool is_already_activated;
 
     [SerializeField] private ParticleSystem confetti_particle;
     [SerializeField, Range(0, 360), Tooltip("Default = 0")] private float mouse_tibegging_direction_x, mouse_tibegging_direction_y;
@@ -12,19 +16,28 @@ public class SavePoint : MonoBehaviour
     private void Awake()
     {
         GetReferences();
+        InitFields();
+    }
+
+    private void InitFields()
+    {
+        is_already_activated = false;
     }
 
     private void GetReferences()
     {
         ap = GetComponent<AudioSource>();
         cof = FindFirstObjectByType<CinemachineOrbitalFollow>();
+        sga = GetComponent<SimpleGemsAnim>();
     }
 
     private void OnTriggerEnter(Collider other)
     {
+        if (is_already_activated) return;
         if (!other.CompareTag("Player")) return;
 
-        // transform.rotation = Quaternion.Euler(45, 45, 45); // 나중엔 깃발(?)같은 걸로 Animation을 적용할 거지만, 일단은 작동되는지만 테스트해보기 위함.
+        is_already_activated = true;
+        sga.isRotating = false;
         confetti_particle.Play();
         ap.Play();
         cof.HorizontalAxis.Value = mouse_tibegging_direction_x;
