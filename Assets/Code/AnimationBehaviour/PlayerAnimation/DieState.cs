@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace PlayerAnimation
 {
@@ -12,7 +13,8 @@ namespace PlayerAnimation
 
         public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
-            CustomSceneManager.instance.ReloadCurrentScene();
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            // CustomSceneManager.instance.ReloadCurrentScene(); // final build
         }
     }
 }
