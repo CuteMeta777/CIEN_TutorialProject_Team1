@@ -24,7 +24,7 @@ public class PathFollower : MonoBehaviour
 
         runtimePoints = pathData.points;
         originPos = transform.position;
-        originRot = transform.rotation;
+        // originRot = transform.rotation;
         idx = 0;
 
     }
@@ -47,7 +47,7 @@ public class PathFollower : MonoBehaviour
         Vector3 step = to.normalized * speed * Time.deltaTime;
         transform.position += (step.sqrMagnitude > dist * dist) ? to : step;
 
-        if (step != Vector3.zero) transform.rotation = Quaternion.LookRotation(step);
+        // if (step != Vector3.zero) transform.rotation = Quaternion.LookRotation(step);
     }
 
     void OnDrawGizmosSelected()
