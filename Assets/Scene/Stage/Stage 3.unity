@@ -1850,15 +1850,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1030987137, guid: abc00000000017922305127114318107, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.56661034
+      value: 0.7666
       objectReference: {fileID: 0}
     - target: {fileID: 1030987137, guid: abc00000000017922305127114318107, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.242
+      value: 0.255
       objectReference: {fileID: 0}
     - target: {fileID: 1030987137, guid: abc00000000017922305127114318107, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -8.524
+      value: -8.2479
       objectReference: {fileID: 0}
     - target: {fileID: 1030987137, guid: abc00000000017922305127114318107, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1879,7 +1879,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1030987136, guid: abc00000000017922305127114318107, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1115381100}
   m_SourcePrefab: {fileID: 100100000, guid: abc00000000017922305127114318107, type: 3}
 --- !u!4 &82937546 stripped
 Transform:
@@ -2359,28 +2362,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1030987337, guid: abc00000000001179670640414874669, type: 3}
   m_PrefabInstance: {fileID: 103909212}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &111320182 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1030987136, guid: abc00000000017922305127114318107, type: 3}
-  m_PrefabInstance: {fileID: 174307899}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &111320183 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1030987137, guid: abc00000000017922305127114318107, type: 3}
-  m_PrefabInstance: {fileID: 174307899}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &111320184
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 111320182}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e435fe9b7f63a7f488e29d031f77daea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &112468921
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3967,90 +3948,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e435fe9b7f63a7f488e29d031f77daea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1001 &174307899
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1367946155}
-    m_Modifications:
-    - target: {fileID: 1030987136, guid: abc00000000017922305127114318107, type: 3}
-      propertyPath: m_Name
-      value: Kitchen_Props_B_Plate_A6 (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 1030987137, guid: abc00000000017922305127114318107, type: 3}
-      propertyPath: m_RootOrder
-      value: 136
-      objectReference: {fileID: 0}
-    - target: {fileID: 1030987137, guid: abc00000000017922305127114318107, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.8642769
-      objectReference: {fileID: 0}
-    - target: {fileID: 1030987137, guid: abc00000000017922305127114318107, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.8642769
-      objectReference: {fileID: 0}
-    - target: {fileID: 1030987137, guid: abc00000000017922305127114318107, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.8642769
-      objectReference: {fileID: 0}
-    - target: {fileID: 1030987137, guid: abc00000000017922305127114318107, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.76894
-      objectReference: {fileID: 0}
-    - target: {fileID: 1030987137, guid: abc00000000017922305127114318107, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.21189
-      objectReference: {fileID: 0}
-    - target: {fileID: 1030987137, guid: abc00000000017922305127114318107, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -8.2508
-      objectReference: {fileID: 0}
-    - target: {fileID: 1030987137, guid: abc00000000017922305127114318107, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7070756
-      objectReference: {fileID: 0}
-    - target: {fileID: 1030987137, guid: abc00000000017922305127114318107, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.0066440054
-      objectReference: {fileID: 0}
-    - target: {fileID: 1030987137, guid: abc00000000017922305127114318107, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.7070756
-      objectReference: {fileID: 0}
-    - target: {fileID: 1030987137, guid: abc00000000017922305127114318107, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0.0066440054
-      objectReference: {fileID: 0}
-    - target: {fileID: 1030987139, guid: abc00000000017922305127114318107, type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 4300008, guid: abc00000000005888583561709304831, type: 3}
-    - target: {fileID: 1030987139, guid: abc00000000017922305127114318107, type: 3}
-      propertyPath: m_Convex
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1030987141, guid: abc00000000017922305127114318107, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1030987141, guid: abc00000000017922305127114318107, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.072
-      objectReference: {fileID: 0}
-    - target: {fileID: 1030987141, guid: abc00000000017922305127114318107, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1030987136, guid: abc00000000017922305127114318107, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 111320184}
-  m_SourcePrefab: {fileID: 100100000, guid: abc00000000017922305127114318107, type: 3}
 --- !u!1001 &175986569
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -39096,6 +38993,23 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1030991473, guid: abc00000000006446638855177469615, type: 3}
   m_PrefabInstance: {fileID: 1114350751}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1115381097 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1030987136, guid: abc00000000017922305127114318107, type: 3}
+  m_PrefabInstance: {fileID: 82937545}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1115381100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1115381097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e435fe9b7f63a7f488e29d031f77daea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1119343506
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -41846,6 +41760,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Assets_Proxy_kitchen_Shelf_A_Proxy_22
       objectReference: {fileID: 0}
+    - target: {fileID: 1030984977, guid: abc00000000016586981381448818515, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1030984978, guid: abc00000000016586981381448818515, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -41893,6 +41811,22 @@ PrefabInstance:
     - target: {fileID: 1030984980, guid: abc00000000016586981381448818515, type: 3}
       propertyPath: m_Convex
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030984981, guid: abc00000000016586981381448818515, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030984985, guid: abc00000000016586981381448818515, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030984989, guid: abc00000000016586981381448818515, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030984993, guid: abc00000000016586981381448818515, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -45625,7 +45559,6 @@ Transform:
   - {fileID: 721483652}
   - {fileID: 1468782893}
   - {fileID: 82937546}
-  - {fileID: 111320183}
   - {fileID: 497548709}
   - {fileID: 1778350251}
   - {fileID: 1717938649}
