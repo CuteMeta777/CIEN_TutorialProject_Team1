@@ -104,6 +104,7 @@ public class PlayerAction : MonoBehaviour
     {
         if (is_dead) return;
         AnimatorStateInfo state = anim.GetCurrentAnimatorStateInfo(0);
+        if (state.IsName("Hurt") || state.IsName("Goal")) return;
 
         ap.PlayOneShot(die_clip); // Hurt로 나중에 바꿀 것.
         anim.SetTrigger("Hurt");

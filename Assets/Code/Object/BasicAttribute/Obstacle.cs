@@ -48,8 +48,8 @@ public class Obstacle : MonoBehaviour
         if (type == Type.Knockback)
         {
             pa.Knockback();
-            Vector3 knockbackDirection = (transform.position - other.transform.position).normalized;
-            other.gameObject.GetComponent<PlayerAction>().rb.AddForce(knockbackDirection * knockback_force, ForceMode.Impulse);
+            Vector3 knockbackDirection = (other.transform.position - transform.position).normalized;
+            other.gameObject.GetComponent<PlayerAction>().rb.AddForce(knockbackDirection * knockback_force);
             return;
         }
 
