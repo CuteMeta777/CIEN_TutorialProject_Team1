@@ -13,8 +13,8 @@ namespace PlayerAnimation
 
         public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-            // CustomSceneManager.instance.ReloadCurrentScene(); // final build
+            // SceneManager.LoadScene(SceneManager.GetActiveScene().name); // test build
+            CustomSceneManager.instance.ReloadCurrentScene(); // final build
         }
     }
 }
