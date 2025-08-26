@@ -121,7 +121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
-  knockback_force: 400
+  knockback_force: 600
 --- !u!1 &1030990224
 GameObject:
   m_ObjectHideFlags: 0
