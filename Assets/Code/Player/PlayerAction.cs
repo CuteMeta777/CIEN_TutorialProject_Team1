@@ -11,7 +11,7 @@ public class PlayerAction : MonoBehaviour
     private bool is_dead;
 
     [SerializeField, Tooltip("Const value. DO NOT TOUCH")] private Transform cam_transform;
-    [SerializeField] private AudioClip walk_clip, jump_clip, die_clip;
+    [SerializeField] private AudioClip walk_clip, jump_clip, die_clip, hurt_clip;
     [SerializeField] private ParticleSystem jump_particle;
 
     private void Awake()
@@ -98,6 +98,15 @@ public class PlayerAction : MonoBehaviour
         is_dead = true;
         ap.PlayOneShot(die_clip); // Die
         anim.SetTrigger("Die");
+    }
+
+    public void Knockback()
+    {
+        if (is_dead) return;
+        AnimatorStateInfo state = anim.GetCurrentAnimatorStateInfo(0);
+
+        ap.PlayOneShot(die_clip); // Hurt로 나중에 바꿀 것.
+        anim.SetTrigger("Hurt");
     }
 
     public void ReachedGoal()

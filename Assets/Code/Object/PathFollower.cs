@@ -47,7 +47,7 @@ public class PathFollower : MonoBehaviour
         Vector3 step = to.normalized * speed * Time.deltaTime;
         transform.position += (step.sqrMagnitude > dist * dist) ? to : step;
 
-        if (step != Vector3.zero) transform.rotation = Quaternion.LookRotation(step);
+        // if (step != Vector3.zero) transform.rotation = Quaternion.LookRotation(step);
     }
 
     void OnDrawGizmosSelected()
