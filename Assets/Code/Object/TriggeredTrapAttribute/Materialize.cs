@@ -4,6 +4,7 @@ using UnityEngine;
 public class Materialize : TriggeredTrap
 {
     private MeshRenderer[] mrs;
+    private SkinnedMeshRenderer[] smrs;
 
     private void Awake()
     {
@@ -18,16 +19,21 @@ public class Materialize : TriggeredTrap
     private void GetReferences()
     {
         mrs = GetComponentsInChildren<MeshRenderer>();
+        smrs = GetComponentsInChildren<SkinnedMeshRenderer>();
+        // Debug.Log(mrs);
+        foreach (SkinnedMeshRenderer smr in smrs) Debug.Log(smr);
     }
 
     private void BecomeInvisible()
     {
-        foreach (MeshRenderer mr in mrs) mr.enabled = false;
+        if (mrs != null) { foreach (MeshRenderer mr in mrs) mr.enabled = false; }
+        if (smrs != null) { foreach (SkinnedMeshRenderer smr in smrs) { Debug.Log(smr); smr.enabled = false; } }
     }
 
     public override void React()
     {
         // add particle effect later
-        foreach (MeshRenderer mr in mrs) mr.enabled = true;
+        if (mrs != null) { foreach (MeshRenderer mr in mrs) mr.enabled = true; }
+        if (smrs != null) { foreach (SkinnedMeshRenderer smr in smrs) smr.enabled = true; }
     }
 }
