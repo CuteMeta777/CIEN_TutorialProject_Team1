@@ -24,7 +24,7 @@ public class PathFollower : MonoBehaviour
 
         runtimePoints = pathData.points;
         originPos = transform.position;
-        // originRot = transform.rotation;
+        originRot = transform.rotation;
         idx = 0;
 
     }
