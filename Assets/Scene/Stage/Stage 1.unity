@@ -20424,6 +20424,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
+  knockback_force: 0
 --- !u!1001 &594505423
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22485,6 +22486,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
+  knockback_force: 0
 --- !u!1001 &642822434
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -44491,6 +44493,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
+  knockback_force: 0
 --- !u!1001 &1317955688
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -64992,6 +64995,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
+  knockback_force: 0
 --- !u!1001 &2015092960
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -66688,6 +66692,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
+  knockback_force: 0
 --- !u!1001 &2070449686
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -69371,14 +69376,6 @@ PrefabInstance:
     - target: {fileID: 2309453555172719189, guid: 31d62a1fef4bb894ab8fe573f0ac8dbc, type: 3}
       propertyPath: m_Name
       value: Save Point
-      objectReference: {fileID: 0}
-    - target: {fileID: 3738144545082481110, guid: 31d62a1fef4bb894ab8fe573f0ac8dbc, type: 3}
-      propertyPath: mouse_tibegging_direction_x
-      value: 261
-      objectReference: {fileID: 0}
-    - target: {fileID: 3738144545082481110, guid: 31d62a1fef4bb894ab8fe573f0ac8dbc, type: 3}
-      propertyPath: mouse_tibegging_direction_y
-      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 4085346755391876632, guid: 31d62a1fef4bb894ab8fe573f0ac8dbc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -74863,6 +74860,7 @@ MonoBehaviour:
   walk_clip: {fileID: 8300000, guid: c971a98d1c1c0c74f956b4d17507414a, type: 3}
   jump_clip: {fileID: 8300000, guid: 7cb372765f0d2ce46b6f963cecb61faf, type: 3}
   die_clip: {fileID: 8300000, guid: 3386fa7d798deb24b8b5b9bf836b60ad, type: 3}
+  hurt_clip: {fileID: 0}
   jump_particle: {fileID: 807022180}
 --- !u!135 &8438435978078450909
 SphereCollider:
