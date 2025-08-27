@@ -6,12 +6,12 @@ public class PlayerAction : MonoBehaviour
     private PlayerStatus ps;
     public Rigidbody rb { get; private set; }
     private Animator anim;
-    private AudioSource ap; // audio player
+    private AudioSource ap;
 
     private bool is_dead;
 
     [SerializeField, Tooltip("Const value. DO NOT TOUCH")] private Transform cam_transform;
-    [SerializeField] private AudioClip walk_clip, jump_clip, die_clip, hurt_clip;
+    [SerializeField] private AudioClip walk_clip, jump_clip, die_clip;
     [SerializeField] private ParticleSystem jump_particle;
 
     private void Awake()
@@ -74,20 +74,11 @@ public class PlayerAction : MonoBehaviour
         if (!pi.jump || !ps.is_grounded) return;
 
         jump_particle.Play();
-        ap.PlayOneShot(jump_clip); // Jump
+        ap.PlayOneShot(jump_clip);
         anim.SetTrigger("Jump");
         rb.linearVelocity = new Vector3(rb.linearVelocity.x, 0, rb.linearVelocity.z);
         rb.AddForce(Vector3.up * ps.jump_force);
     }
-
-    //public void Hurt()
-    //{
-    //    // 양심적인 무적 시간^^
-    //    AnimatorStateInfo state = anim.GetCurrentAnimatorStateInfo(0);
-    //    if (state.IsName("Hurt") || state.IsName("Die") || state.IsName("Goal")) return;
-
-    //    anim.SetTrigger("Hurt");
-    //}
 
     public void Die()
     {
@@ -96,7 +87,7 @@ public class PlayerAction : MonoBehaviour
         if (state.IsName("Die") || state.IsName("Goal")) return;
 
         is_dead = true;
-        ap.PlayOneShot(die_clip); // Die
+        ap.PlayOneShot(die_clip);
         anim.SetTrigger("Die");
     }
 
@@ -106,14 +97,12 @@ public class PlayerAction : MonoBehaviour
         AnimatorStateInfo state = anim.GetCurrentAnimatorStateInfo(0);
         if (state.IsName("Hurt") || state.IsName("Goal")) return;
 
-        ap.PlayOneShot(die_clip); // Hurt로 나중에 바꿀 것.
+        ap.PlayOneShot(die_clip);
         anim.SetTrigger("Hurt");
     }
 
     public void ReachedGoal()
     {
-        // Unity 물리 엔진을 믿지 않는다...
-        // 죽었으면 안 되지만, 다친 상태에서는 양심적으로 골대에 들어가게 해주자...
         AnimatorStateInfo state = anim.GetCurrentAnimatorStateInfo(0);
         if (state.IsName("Goal") || state.IsName("Die")) return;
 
@@ -124,10 +113,4 @@ public class PlayerAction : MonoBehaviour
     {
         ap.PlayOneShot(walk_clip);
     }
-
-    // 틈만 나면 ghost collider 이슈가 터지는 관계로 이 코드를 남겨놓는다.
-    //private void OnCollisionEnter(Collision other)
-    //{
-    //    Debug.Log(other.gameObject.name);
-    //}
 }

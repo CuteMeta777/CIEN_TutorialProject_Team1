@@ -2126,6 +2126,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
+  knockback_force: 0
 --- !u!114 &472083472
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2761,6 +2762,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 363166006151715, guid: 76438151032dc224aae90a0b81889d32, type: 3}
+      propertyPath: m_Range
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 363166006151715, guid: 76438151032dc224aae90a0b81889d32, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 363166006151715, guid: 76438151032dc224aae90a0b81889d32, type: 3}
+      propertyPath: m_Intensity
+      value: 0.01
+      objectReference: {fileID: 0}
     - target: {fileID: 4213160981897007022, guid: 76438151032dc224aae90a0b81889d32, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.1
@@ -2775,15 +2788,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4213160981897007022, guid: 76438151032dc224aae90a0b81889d32, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.393
+      value: -5.318
       objectReference: {fileID: 0}
     - target: {fileID: 4213160981897007022, guid: 76438151032dc224aae90a0b81889d32, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.243
+      value: 3.29
       objectReference: {fileID: 0}
     - target: {fileID: 4213160981897007022, guid: 76438151032dc224aae90a0b81889d32, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 7.196
+      value: 7.064
       objectReference: {fileID: 0}
     - target: {fileID: 4213160981897007022, guid: 76438151032dc224aae90a0b81889d32, type: 3}
       propertyPath: m_LocalRotation.w
@@ -7971,6 +7984,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
+  knockback_force: 0
 --- !u!114 &645263355
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14434,6 +14448,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
+  knockback_force: 0
 --- !u!114 &1051315840
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14974,6 +14989,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
+  knockback_force: 0
 --- !u!114 &1168490717
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15919,6 +15935,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
+  knockback_force: 0
 --- !u!1 &1328432004
 GameObject:
   m_ObjectHideFlags: 0
@@ -21626,6 +21643,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
+  knockback_force: 0
 --- !u!114 &1497623688
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24201,6 +24219,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
+  knockback_force: 0
 --- !u!114 &1953062642
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24714,6 +24733,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
+  knockback_force: 0
 --- !u!114 &1983279192
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25088,6 +25108,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
+  knockback_force: 0
 --- !u!114 &2127024176
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25267,6 +25288,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
+  knockback_force: 0
 --- !u!114 &2137574929
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25323,6 +25345,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
+  knockback_force: 0
 --- !u!114 &2139405099
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26484,6 +26507,7 @@ MonoBehaviour:
   walk_clip: {fileID: 8300000, guid: c971a98d1c1c0c74f956b4d17507414a, type: 3}
   jump_clip: {fileID: 8300000, guid: 7cb372765f0d2ce46b6f963cecb61faf, type: 3}
   die_clip: {fileID: 8300000, guid: 3386fa7d798deb24b8b5b9bf836b60ad, type: 3}
+  hurt_clip: {fileID: 0}
   jump_particle: {fileID: 622400449}
 --- !u!135 &8438435978078450909
 SphereCollider:
