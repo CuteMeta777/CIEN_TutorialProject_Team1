@@ -2709,6 +2709,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 1030986840, guid: abc00000000001729981103144623692, type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030986840, guid: abc00000000001729981103144623692, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1030986841, guid: abc00000000001729981103144623692, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
